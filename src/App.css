@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Custom scrollbar styles */
+/* For WebKit based browsers (Chrome, Safari) */
+/* You can adjust the width and color as needed */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(184, 50, 50, 0.2);
+    border-radius: 3px;
+  }
+  
+  /* For Firefox */
+  /* You can adjust the width and color as needed */
+  /* Note: Firefox uses different pseudo-elements */
+  /* for scrollbar thumb and track */
+  /* The following styles are for scrollbar thumb */
+  * {
+    scrollbar-width: thin;
+    font-family: 'Poppins', sans-serif;
+  } 
+  
+  /* ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  } 
+  .cart-button {
+    cursor: pointer;
+  } */
+  .line::before {
+
+    content: "";
+    
+  top: -moz-calc(50% - 0.5px);
+  top: -webkit-calc(50% - 0.5px);
+  top: -ms-calc(50% - 0.5px);
+  top: calc(50% - 0.5px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  }

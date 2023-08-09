@@ -14,6 +14,8 @@ interface Product {
 }
 const Store = () => {
   const { apidata } = useApiData();
+  console.log(apidata);
+  
   const [activeBtn, setActiveBtn] = useState<number >(0)
   const handleButton = (number: number) => {
     setActiveBtn(number)
@@ -24,7 +26,8 @@ const Store = () => {
 
   }
   const filterCategory = selectdCategory ? apidata.filter((product: Product) => product.category.includes(selectdCategory)) : apidata
-
+  console.log(filterCategory);
+  
   return (
     <div>
       <div className=" container mx-auto poppins">
@@ -38,18 +41,18 @@ const Store = () => {
               handleCategoryFilter(null);
               handleButton(0);
             }}>All</button>
-          <button className={`border-2 border-black px-2 py-1 rounded-lg ${activeBtn === 1 ? 'bg-blue-500 active:bg-green-600' : ''
-            }`}
-            onClick={() => {
-              handleCategoryFilter("men's clothing");
-              handleButton(1);
-            }}>men's clothing</button>
           <button className={`border-2 border-black px-2 py-1 rounded-lg ${activeBtn === 2 ? 'bg-blue-500 active:bg-green-600' : ''
             }`}
             onClick={() => {
               handleCategoryFilter("jewelery");
               handleButton(2);
             }}>jewelery</button>
+            <button className={`border-2 border-black px-2 py-1 rounded-lg ${activeBtn === 1 ? 'bg-blue-500 active:bg-green-600' : ''
+              }`}
+              onClick={() => {
+                handleCategoryFilter("men's clothing");
+                handleButton(1);
+              }}>men's clothing</button>
           <button className={`border-2 border-black px-2 py-1 rounded-lg ${activeBtn === 3 ? 'bg-blue-500 active:bg-green-600' : ''
             }`}
             onClick={() => {

@@ -32,12 +32,12 @@ const Navbar = () => {
       <div className='py-3 bg-[#B5C99A] top-0 sticky z-50'>
 
         <div className='flex justify-between w-full mx-auto items-center container px-4 sm:px-0 '>
-          <div className="logo poppins ">E <span className='text-lg'>CUM</span></div>
+          <div  className="logo poppins "><Link to={'/'}>E <span className='text-lg'>CUM</span></Link> </div>
 
           <div className='flex gap-4 items-center poppins'>
             <a onClick={openModal} className='cursor-pointer flex items-center relative'>
               <div className='hidden md:flex items-center'>
-                <AiOutlineShoppingCart className="  text-2xl " /> <span className='px-1 text-sm'> shopping cart</span> <button className='bg-[#FFF9C9]  w-6  h-7 rounded-full text-sm '>{cartQuantity}</button>
+                <AiOutlineShoppingCart className="  text-2xl  " /> <span className='px-1 text-sm'> shopping cart</span> <button className='bg-[#FFF9C9]  w-6  h-7 rounded-full text-sm '>{cartQuantity}</button>
 
               </div>
               <div className='md:hidden'>

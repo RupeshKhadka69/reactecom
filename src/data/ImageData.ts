@@ -6,7 +6,7 @@ interface ImageData {
     shop?: string;
     secText?: string;
   }
-  
+
   const images: ImageData[] = [
     {
       image: '../assets/Images/imag2.jpg',

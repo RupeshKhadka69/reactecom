@@ -33,7 +33,7 @@ const CountdownTimer: React.FC = () => {
 
   return (
     <div className="countdown-timer flex flex-col items-center justify-center py-8 my-4">
-      <h2 className='text-2xl font-semibold'>Limited Time Offer</h2>
+      <h2 className=' text-sm sm:text-base md:text-xl lg:text-3xl font-semibold'>Limited Time Offer</h2>
       <p className='text-xl py-4'>Hurry Up</p>
       <div className="timer">
         <span className="hour"><span className='text-xl'>Time Left</span>: <span className='inline-block bg-slate-300 text-slate-900 p-1  text-sm mx-2'>{formatTimeComponent(Math.floor(seconds / 3600))}Hr</span></span>

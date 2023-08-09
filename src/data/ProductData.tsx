@@ -10,7 +10,7 @@ interface apiobject {
   category: string[];
 }
 
-export const useApiData = ()=> {
+export const useApiData = () => {
   const [apidata, setApiData] = useState<apiobject[]>([]);
   const [fullapidata, setFullApiData] = useState<apiobject[]>([]);
 

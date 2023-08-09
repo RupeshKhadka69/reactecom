@@ -8,12 +8,9 @@ import CountdownTimer from "./OfferSale";
 // import React from 'react'
 const Home = () => {
   const { fullapidata } = useApiData();
-  // if (!apidata) {
-  //   return <p>Loading...</p>;
-  // }
-
-
   const [currentIndex, setCurrentIndex] = useState(0)
+
+
 
   return (
     <div className="bg-[#FFF9C9]">
@@ -31,11 +28,10 @@ const Home = () => {
             {slide?.text1 &&
               <div className="poppins h-full w-full flex flex-col items-center justify-center">
 
-                <h1 className="text-xl font-semibold tracking-widest py-2">{slide.text1}</h1>
-                <h3 className="text-2xl font-semibold tracking-wider py-2">{slide.text2}</h3>
+                <h1 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-widest py-2">{slide.text1}</h1>
+                <h3 className="text-lg sm:text-xl md:text-3xl bg-green-300  font-semibold tracking-wider py-2">{slide.text2}</h3>
                 <h4 className=" text-black text-xl p-2 mt-2 rounded-xl">{slide.text3} </h4>
-                <button onClick={() => console.log('jeiji')
-                } className="text-sm border-2 hover:text-white ease-in-out duration-300 border-slate-200 hover:bg-[#FC7300] bg-slate-300 text-slate-900 mt-4 px-3 py-2 rounded-xl">{slide.shop}</button>
+                <button  className="text-sm border-2 hover:text-white ease-in-out duration-300 border-slate-200 hover:bg-[#FC7300] bg-slate-300 text-slate-900 mt-4 px-3 py-2 rounded-xl"><Link to={"/store"}>{slide.shop}</Link></button>
               </div>
 
 
@@ -44,9 +40,8 @@ const Home = () => {
               slide?.secText && (
                 <div className="poppins h-full w-full flex flex-col items-center justify-center">
 
-                  <h3 className="text-xl bg-[#FFF9C9] text-black  px-2 font-semibold tracking-normal py-2 rounded-md">{slide.secText}</h3>
-                  <button onClick={() => console.log('jeiji')
-                  } className=" text-sm border-2 ease-in-out duration-300 hover:text-white border-slate-200 hover:bg-[#FC7300] bg-slate-300 text-slate-900 mt-4 px-3 py-2 rounded-xl">{slide.shop}</button>
+                  <h3 className="text-lg sm:text-xl md:text-2xl bg-[#FFF9C9] text-black  px-2 font-semibold tracking-normal py-2 rounded-md">{slide.secText}</h3>
+                  <button className=" text-sm border-2 ease-in-out duration-300 hover:text-white border-slate-200 hover:bg-[#FC7300] bg-slate-300 text-slate-900 mt-4 px-3 py-2 rounded-xl"> <Link to={"/store"}>{slide.shop}</Link></button>
 
 
 
@@ -60,7 +55,7 @@ const Home = () => {
       <div>
         <CountdownTimer />
       </div>
-      <h1 className=' line before:h-0.5 before:bg-slate-800 my-16 before:absolute relative text-center'><span><span className=" my-8 text-2xl font-semibold z-10 relative bg-[#FFF9C9] px-4 ">Trending Now</span></span></h1>
+      <h1 className=' line before:h-0.5 before:bg-slate-800 my-16 before:absolute relative text-center'><span><span className=" my-8 md:text-2xl text-xl font-semibold z-10 relative bg-[#FFF9C9] px-4 ">Trending Now</span></span></h1>
       <div className="py-8">
 
         <div className="container mx-auto ">
@@ -68,6 +63,7 @@ const Home = () => {
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  place-items-center container mx-auto  '>
 
             {
+              
               fullapidata.map((data) => (
                 <div key={data.id} className='  py-4 flex flex-col items-center   md:items-start ' >
                   <div className=" ">
@@ -97,18 +93,18 @@ const Home = () => {
 
         <div className=" flex md:flex-row flex-col-reverse items-center justify-between w-full md:h-screen  h-auto">
           <div className="relative hidden md:block ">
-            <img src="../assets/Images/photos-1.jpg" className=" w-full object-cover " alt="photos-1" />
-            <img src="../assets/Images/photos-2.jpg" className=" w-[16rem] object-cover absolute   top-[7rem] left-[5rem]" alt="photos-1" />
+            <img src="../assets/Images/photos-1.jpg" className=" w-full md:w-[22rem] object-cover " alt="photos-1" />
+            <img src="../assets/Images/photos-2.jpg" className=" w-[16rem]  object-cover absolute   top-[7rem] left-[5rem] md:top-[9rem] md:left-[9rem]" alt="photos-1" />
           </div>
           <div className="text-center flex-1 px-0 md:px-[6rem]">
-            <p className="text-xm mt-4">our Belief</p>
+            <p className="text-xm mt-4 md:text-sm">our Belief</p>
             <h3 className="text-3xl mt-4 ">We are the one that you need all to one</h3>
-            <p className="md:my-4 text-sm my-4">We spend one-third of our lives sleeping. Therefore, it's important to invest in natural bedding products that are beneficial to support our health and well-being. Heveya® is your one-stop premium brand for safe and sustainable bedding!</p>
+            <p className="md:my-4 text-sm my-4 md:text-base">We spend one-third of our lives sleeping. Therefore, it's important to invest in natural bedding products that are beneficial to support our health and well-being. Heveya® is your one-stop premium brand for safe and sustainable bedding!</p>
             <button className="hover:text-white ease-in-out duration-300 hover:bg-[#FC7300] trans rounded-md border-solid border-2 border-slate-950 p-2 py-1 cursor-pointer ">About us</button>
           </div>
           <div className="relative py-8">
             <img src="../assets/Images/photos-3.jpg" className=" w-[22rem] object-cover hidden md:block" alt="photos-1" />
-            <img src="../assets/Images/photos-4.jpg" className=" w-[20rem] sm:w-[25rem] md:w-[16rem] object-cover relative top-0 md:absolute md:top-[7rem] md:right-[5rem]" alt="photos-1" />
+            <img src="../assets/Images/photos-4.jpg" className=" w-[20rem] sm:w-[25rem] md:w-[16rem] object-cover relative top-0 md:absolute md:top-[11rem] md:right-[9rem]" alt="photos-1" />
 
           </div>
         </div>

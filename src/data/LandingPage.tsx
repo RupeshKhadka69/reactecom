@@ -9,7 +9,7 @@ interface LandingPageProps {
 
 
 
-const LandingPage: React.FC<LandingPageProps> = ({ currentIndex, setCurrentIndex }) => {
+const LandingPage: React.FC<LandingPageProps> = ({  setCurrentIndex }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);

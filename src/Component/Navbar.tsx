@@ -4,21 +4,21 @@ import "../App.css"
 import { AiOutlineShoppingCart, AiOutlineMenu } from 'react-icons/ai'
 import { MdClose } from 'react-icons/md'
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion"
 import { useShoppingCart } from '../Context/ShoppingCartContext';
 const Navbar = () => {
   const { cartQuantity } = useShoppingCart()
   const [menuOpen, setMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const handleBodyOverflow = () => {
-    document.body.style.overflow = menuOpen ? 'auto' : 'hidden' 
-  }
+
+
+ 
   const handleToggle = ()=> {
     setMenuOpen(!menuOpen)
-    handleBodyOverflow()
-  }
+  } 
+   
   const handleClick = () => {
     setMenuOpen(false)
-    handleBodyOverflow()
   }
   const openModal = () => {
     setModalOpen(true);
@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className='py-3 bg-[#B5C99A] top-0 sticky z-50'>
 
         <div className='flex justify-between w-full mx-auto items-center container px-4 sm:px-0 '>
-          <div  className="logo poppins "><Link to={'/'}>E <span className='text-lg'>CUM</span></Link> </div>
+          <div  className="logo poppins "><Link to={'/'}>E <span className='text-lg'>commerce</span></Link> </div>
 
           <div className='flex gap-4 items-center poppins'>
             <a onClick={openModal} className='cursor-pointer flex items-center relative'>
@@ -75,22 +75,23 @@ const Navbar = () => {
 
 
       </div>
-      {
-        menuOpen && (
-          
-          <div className='absolute w-full z-50 h-screen bg-green-200'>
-        <ul className='flex flex-col gap-4 py-4 h-full overflow-y-auto  container  items-center  w-full text-base   poppins'>
-          <li><Link to={"/store"} onClick={handleClick} >All Categories</Link></li>
-          <li><Link to={"/store"} onClick={handleClick}>New Addition</Link></li>
-          <li><Link to={"/store"} onClick={handleClick}>Trending</Link></li>
-          <li><Link to={"/store"} onClick={handleClick}>Bullet Journal</Link></li>
-          <li><Link to={"/store"} onClick={handleClick}>Our Blog</Link></li>
-          <li><Link to={"/store"} onClick={handleClick}>About Us</Link></li>
-        </ul>
-
-      </div>
-          )
-        }
+      {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className='fixed w-full z-50 h-screen bg-green-200'
+          >
+            <ul className='flex flex-col gap-4 py-4 h-full overflow-y-auto  container  items-center  w-full text-base   poppins'>
+              <li><Link to={"/store"} onClick={handleClick} >All Categories</Link></li>
+              <li><Link to={"/store"} onClick={handleClick}>New Addition</Link></li>
+              <li><Link to={"/store"} onClick={handleClick}>Trending</Link></li>
+              <li><Link to={"/store"} onClick={handleClick}>Bullet Journal</Link></li>
+              <li><Link to={"/store"} onClick={handleClick}>Our Blog</Link></li>
+              <li><Link to={"/store"} onClick={handleClick}>About Us</Link></li>
+            </ul>
+          </motion.div>
+        )}
         <Modal isOpen={modalOpen} onClose={closeModal} />
 
     </>

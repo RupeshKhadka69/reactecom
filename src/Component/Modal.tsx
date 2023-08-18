@@ -9,7 +9,6 @@ interface ModalProps {
 }
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const { cartItems } = useShoppingCart()
-  console.log(cartItems);
   
   const {apidata} = useApiData()
   return (
